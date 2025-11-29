@@ -24,5 +24,4 @@ def roman_to_int(roman_string):
         # əks halda əlavə et
         total += value
 
-    return total
-
+    return totaL
