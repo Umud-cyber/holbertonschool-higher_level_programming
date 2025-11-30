@@ -5,9 +5,9 @@ This module defines a Rectangle class.
 
 
 class Rectangle:
-    """Represents a rectangle with width and height."""
+    """Represents a rectangle with width, height, and instance counter."""
 
-    number_of_instances = 0  # Public class attribute
+    number_of_instances = 0
 
     def __init__(self, width=0, height=0):
         """Initialize the rectangle."""
@@ -17,7 +17,7 @@ class Rectangle:
 
     @property
     def width(self):
-        """Retrieve the width."""
+        """Return the width."""
         return self.__width
 
     @width.setter
@@ -31,7 +31,7 @@ class Rectangle:
 
     @property
     def height(self):
-        """Retrieve the height."""
+        """Return the height."""
         return self.__height
 
     @height.setter
@@ -54,20 +54,22 @@ class Rectangle:
         return 2 * (self.__width + self.__height)
 
     def __str__(self):
-        """Return the rectangle using # for printing."""
+        """Return the rectangle drawn with # characters."""
         if self.__width == 0 or self.__height == 0:
             return ""
-
-        rows = []
+        lines = []
         for _ in range(self.__height):
-            rows.append("#" * self.__width)
-        return "\n".join(rows)
+            lines.append("#" * self.__width)
+        return "\n".join(lines)
 
     def __repr__(self):
-        """Return a string representation used to recreate the rectangle."""
+        """
+        Return a string representation that can recreate
+        the rectangle instance using eval().
+        """
         return f"Rectangle({self.__width}, {self.__height})"
 
     def __del__(self):
-        """Print a message when a rectangle is deleted and decrement instance count."""
+        """Print a message and decrement the instance counter."""
         print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
