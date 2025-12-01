@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 class BaseGeometry:
-    """ krkrjg lf,"""
-
+    """Base class for geometry objects."""
 
     def area(self):
-        """ smfheik d"""
+        """Raises an exception because area() is not implemented."""
         raise Exception("area() is not implemented")
