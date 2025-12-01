@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 """ dkwkjfsjf didj"""
 class BaseGeometry:
     """ dkkod dk"""
