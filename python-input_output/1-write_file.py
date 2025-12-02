@@ -1,8 +1,7 @@
 #!/usr/bin/python3
-"""Module thatction to write a string to a text file (UTF-8)."""
-  
+"""Module that defines a function to write text to a UTF-8 file."""
 
 def write_file(filename="", text=""):
-    """Writthe number of characters written."""
+    """Writes text to a file and returns number of characters written."""
     with open(filename, "w", encoding="utf-8") as f:
         return f.write(text)
