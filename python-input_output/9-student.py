@@ -14,4 +14,3 @@ class Student():
     def to_json(self):
         """ dnzf """
         return self.__dict__
-
