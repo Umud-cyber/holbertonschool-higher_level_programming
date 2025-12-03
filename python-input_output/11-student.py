@@ -19,6 +19,7 @@ class Student():
             if key in self.__dict__:
                 new[key] = self.__dict__[key]
         return new
+    return self.__dict__
     def reload_from_json(self, json):
         """ jf dkfjn dukhg """
         for key, value in json.items():
