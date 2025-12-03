@@ -1,26 +1,36 @@
 #!/usr/bin/python3
-""" dhd jhjdf djf"""
+"""Module that defines a Student class with JSON helpers."""
+ 
 
-class Student():
-    """ jfdfd jxdfgbkx"""
-
+class Student:
+    """Defines a student by first name, last name, and age."""
 
     def __init__(self, first_name, last_name, age):
-        """ sjkdd fzhjf """
+        """Initialize the student."""
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
-    def to_json(self):
-        """ dnzf """
+
+    def to_json(self, attrs=None):
+        """
+        Return dictionary representation of the Student.
+
+        If attrs is a list of strings, return only those attributes.
+        Otherwise, return all attributes.
+        """
+        if isinstance(attrs, list) and all(isinstance(x, str) for x in attrs):
+            new = {}
+            for key in attrs:
+                if hasattr(self, key):
+                    new[key] = getattr(self, key)
+            return new
         return self.__dict__
-    if type(attrs) is list:
-        new = {}
-        for key in attrs:
-            if key in self.__dict__:
-                new[key] = self.__dict__[key]
-        return new
-    return self.__dict__
+
     def reload_from_json(self, json):
-        """ jf dkfjn dukhg """
+        """
+        Replace all attributes of the Student instance from a dictionary.
+
+        json is expected to be a dictionary.
+        """
         for key, value in json.items():
-            self.__dict__[key] = value
+            setattr(self, key, value)
