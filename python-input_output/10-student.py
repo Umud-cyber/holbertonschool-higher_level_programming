@@ -10,6 +10,7 @@ class Student():
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
+
     def to_json(self):
         """ dnzf """
         return self.__dict__
@@ -19,3 +20,4 @@ class Student():
             if key in self.__dict__:
                 new[key] = self.__dict__[key]
         return new
+    return self.__dict__
