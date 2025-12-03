@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """Module that defines a Student class with JSON helpers."""
- 
 
 class Student:
     """Defines a student by first name, last name, and age."""
@@ -29,8 +28,6 @@ class Student:
     def reload_from_json(self, json):
         """
         Replace all attributes of the Student instance from a dictionary.
-
-        json is expected to be a dictionary.
         """
         for key, value in json.items():
             setattr(self, key, value)
