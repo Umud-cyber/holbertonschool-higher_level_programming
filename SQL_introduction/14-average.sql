@@ -1,3 +1,3 @@
--- Let's find avarage of the score
-SELECT(AVG) AS avarage
+-- Compute average of all scores
+SELECT AVG(score) AS average
 FROM second_table;
