@@ -1,21 +1,3 @@
-#!/usr/bin/python3
-import requests
-import csv
-
-
-def fetch_and_print_posts():
-    """Fetch posts and print status + titles"""
-    url = "https://jsonplaceholder.typicode.com/posts"
-    response = requests.get(url)
-
-    print(f"Status Code: {response.status_code}")
-
-    if response.status_code == 200:
-        data = response.json()
-        for post in data:
-            print(post.get("title"))
-
-
 def fetch_and_save_posts():
     """Fetch posts and save them into posts.csv"""
     url = "https://jsonplaceholder.typicode.com/posts"
@@ -24,15 +6,12 @@ def fetch_and_save_posts():
     if response.status_code == 200:
         data = response.json()
 
-        # Yeni struktur: yalnız id, title, body
         filtered = [
             {"id": post["id"], "title": post["title"], "body": post["body"]}
             for post in data
         ]
 
-        # CSV-ə yazırıq
         with open("posts.csv", "w", newline="", encoding="utf-8") as f:
             writer = csv.DictWriter(f, fieldnames=["id", "title", "body"])
             writer.writeheader()
-            writer.writerows(filtere)
-
+            writer.writerows(filtered)
