@@ -1,28 +1,275 @@
-Test cases for MyList class
->>> MyList = __import__('1-my_list').MyList
->>> my_list = MyList()
->>> my_list.append(1)
->>> my_list.append(4)
->>> my_list.append(2)
->>> my_list.append(3)
->>> my_list.append(5)
->>> print(my_list)
-[1, 4, 2, 3, 5]
->>> my_list.print_sorted()
-[1, 2, 3, 4, 5]
->>> print(my_list)
-[1, 4, 2, 3, 5]
->>> empty_list = MyList()
->>> empty_list.print_sorted()
-[]
->>> single_list = MyList()
->>> single_list.append(42)
->>> single_list.print_sorted()
-[42]
->>> negative_list = MyList()
->>> negative_list.append(-5)
->>> negative_list.append(10)
->>> negative_list.append(-2)
->>> negative_list.append(0)
->>> negative_list.print_sorted()
-[-5, -2, 0, 10]
+Trying:
+    BaseGeometry = __import__('7-base_geometry').BaseGeometry
+Expecting nothing
+ok
+Trying:
+    bg = BaseGeometry()
+Expecting nothing
+ok
+Trying:
+    try:
+        bg.area()
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+Expecting:
+    [Exception] area() is not implemented
+ok
+Trying:
+    bg.integer_validator("my_int", 12)
+Expecting nothing
+ok
+Trying:
+    bg.integer_validator("width", 89)
+Expecting nothing
+ok
+Trying:
+    try:
+        bg.integer_validator("name", "John")
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+Expecting:
+    [TypeError] name must be an integer
+ok
+Trying:
+    try:
+        bg.integer_validator("age", 12.5)
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+Expecting:
+    [TypeError] age must be an integer
+ok
+Trying:
+    try:
+        bg.integer_validator("flag", True)
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+Expecting:
+    [TypeError] flag must be an integer
+ok
+Trying:
+    try:
+        bg.integer_validator("age", (4,))
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+Expecting:
+    [TypeError] age must be an integer
+ok
+Trying:
+    try:
+        bg.integer_validator("age", [3])
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+Expecting:
+    [TypeError] age must be an integer
+ok
+Trying:
+    try:
+        bg.integer_validator("age", {3, 4})
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+Expecting:
+    [TypeError] age must be an integer
+ok
+Trying:
+    try:
+        bg.integer_validator("age", None)
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+Expecting:
+    [TypeError] age must be an integer
+ok
+Trying:
+    try:
+        bg.integer_validator("age", 0)
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+Expecting:
+    [ValueError] age must be greater than 0
+ok
+Trying:
+    try:
+        bg.integer_validator("distance", -4)
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+Expecting:
+    [ValueError] distance must be greater than 0
+ok
+Trying:
+    try:
+        bg.integer_validator()
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+Expecting:
+    [TypeError] integer_validator() missing 2 required positional arguments: 'name' and 'value'
+**********************************************************************
+File "tests/7-base_geometry.txt", line 78, in 7-base_geometry.txt
+Failed example:
+    try:
+        bg.integer_validator()
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+Expected:
+    [TypeError] integer_validator() missing 2 required positional arguments: 'name' and 'value'
+Got:
+    [TypeError] BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
+Trying:
+    try:
+        bg.integer_validator("age")
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+Expecting:
+    [TypeError] integer_validator() missing 1 required positional argument: 'value'
+**********************************************************************
+File "tests/7-base_geometry.txt", line 84, in 7-base_geometry.txt
+Failed example:
+    try:
+        bg.integer_validator("age")
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+Expected:
+    [TypeError] integer_validator() missing 1 required positional argument: 'value'
+Got:
+    [TypeError] BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
+**********************************************************************
+1 items had failures:
+   2 of  16 in 7-base_geometry.txt
+16 tests in 1 items.
+14 passed and 2 failed.
+***Test Failed*** 2 failures.Trying:
+    BaseGeometry = __import__('7-base_geometry').BaseGeometry
+Expecting nothing
+ok
+Trying:
+    bg = BaseGeometry()
+Expecting nothing
+ok
+Trying:
+    try:
+        bg.area()
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+Expecting:
+    [Exception] area() is not implemented
+ok
+Trying:
+    bg.integer_validator("my_int", 12)
+Expecting nothing
+ok
+Trying:
+    bg.integer_validator("width", 89)
+Expecting nothing
+ok
+Trying:
+    try:
+        bg.integer_validator("name", "John")
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+Expecting:
+    [TypeError] name must be an integer
+ok
+Trying:
+    try:
+        bg.integer_validator("age", 12.5)
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+Expecting:
+    [TypeError] age must be an integer
+ok
+Trying:
+    try:
+        bg.integer_validator("flag", True)
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+Expecting:
+    [TypeError] flag must be an integer
+ok
+Trying:
+    try:
+        bg.integer_validator("age", (4,))
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+Expecting:
+    [TypeError] age must be an integer
+ok
+Trying:
+    try:
+        bg.integer_validator("age", [3])
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+Expecting:
+    [TypeError] age must be an integer
+ok
+Trying:
+    try:
+        bg.integer_validator("age", {3, 4})
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+Expecting:
+    [TypeError] age must be an integer
+ok
+Trying:
+    try:
+        bg.integer_validator("age", None)
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+Expecting:
+    [TypeError] age must be an integer
+ok
+Trying:
+    try:
+        bg.integer_validator("age", 0)
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+Expecting:
+    [ValueError] age must be greater than 0
+ok
+Trying:
+    try:
+        bg.integer_validator("distance", -4)
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+Expecting:
+    [ValueError] distance must be greater than 0
+ok
+Trying:
+    try:
+        bg.integer_validator()
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+Expecting:
+    [TypeError] integer_validator() missing 2 required positional arguments: 'name' and 'value'
+**********************************************************************
+File "tests/7-base_geometry.txt", line 78, in 7-base_geometry.txt
+Failed example:
+    try:
+        bg.integer_validator()
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+Expected:
+    [TypeError] integer_validator() missing 2 required positional arguments: 'name' and 'value'
+Got:
+    [TypeError] BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
+Trying:
+    try:
+        bg.integer_validator("age")
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+Expecting:
+    [TypeError] integer_validator() missing 1 required positional argument: 'value'
+**********************************************************************
+File "tests/7-base_geometry.txt", line 84, in 7-base_geometry.txt
+Failed example:
+    try:
+        bg.integer_validator("age")
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+Expected:
+    [TypeError] integer_validator() missing 1 required positional argument: 'value'
+Got:
+    [TypeError] BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
+**********************************************************************
+1 items had failures:
+   2 of  16 in 7-base_geometry.txt
+16 tests in 1 items.
+14 passed and 2 failed.
+***Test Failed*** 2 failures.
